@@ -16,10 +16,13 @@ export function initSocketIoMiddleware(server: http.Server) {
 
   io.on('connection', (socket) => {
 
-    socket.on(MessageEvents.Message, data => {
-      const entity = new  MessageEntity(JSON.parse(data))
+    console.log('New Connection=', socket.id);
 
-      io.emit(MessageEvents.Message, JSON.stringify(entity));
+    socket.on(MessageEvents.Message, data => {
+      console.log(`Connection id=${socket.id} received message = ${data}`)
+      const entity = new MessageEntity(data)
+
+      io.emit(MessageEvents.Message, entity);
     });
   });
 }
