@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "docker:build:image": "docker build --platform=linux/amd64 -t live-chat-api -f ./Dockerfile ."
   },
   "private": true,
   "dependencies": {

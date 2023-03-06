@@ -6,11 +6,6 @@ import http from 'http';
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3001;
 const app = express();
-
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
 const server = http.createServer(app);
 
 initSocketIoMiddleware(server);
